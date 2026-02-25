@@ -29,7 +29,7 @@ function App() {
     setResult(null);
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/analyze", {
+      const response = await fetch("https://fake-job-backend.up.railway.app/analyze", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,7 +49,7 @@ function App() {
 
   const fetchHistory = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/history");
+      const response = await fetch("https://fake-job-backend.up.railway.app/history");
       const data = await response.json();
       setHistory(data);
     } catch (error) {
@@ -61,7 +61,7 @@ function App() {
   }, []);
   const deleteHistory = async (id) => {
     try {
-      await fetch(`http://127.0.0.1:5000/history/${id}`, {
+      await fetch(`https://fake-job-backend.up.railway.app/history/${id}`, {
         method: "DELETE"
       });
       fetchHistory(); // refresh after delete
