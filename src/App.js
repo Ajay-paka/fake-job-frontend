@@ -11,17 +11,6 @@ function App() {
   const [history, setHistory] = useState([]);
   const [filterRisk, setFilterRisk] = useState("All");
 
-  const thStyle = {
-    border: "1px solid #ddd",
-    padding: "8px",
-    textAlign: "left"
-  };
-
-  const tdStyle = {
-    border: "1px solid #ddd",
-    padding: "8px"
-  };
-
   const analyzeJob = async () => {
     if (!text.trim()) return;
 
