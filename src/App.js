@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Header from "./components/Header";
 import TextAreaInput from "./components/TextAreaInput";
 import ResultCard from "./components/ResultCard";
 import RiskChart from "./components/RiskChart";
@@ -50,6 +49,7 @@ function App() {
 
   useEffect(() => {
     fetchHistory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const deleteHistory = async (id) => {
