@@ -38,10 +38,10 @@ function ResultCard({ result }) {
                 <strong>Risk Level:</strong>{" "}
                 <span
                     className={`font-bold ${result.risk === "Low"
-                            ? "text-green-400"
-                            : result.risk === "Medium"
-                                ? "text-yellow-400"
-                                : "text-red-400"
+                        ? "text-green-400"
+                        : result.risk === "Medium"
+                            ? "text-yellow-400"
+                            : "text-red-400"
                         }`}
                 >
                     {result.risk}
@@ -88,6 +88,7 @@ function ResultCard({ result }) {
                     </div>
                 </div>
             )}
+
         </div>
     );
 }

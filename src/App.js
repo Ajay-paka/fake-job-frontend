@@ -143,7 +143,66 @@ function App() {
           </div>
         </section>
       )}
+      {/* HISTORY SECTION */}
+      {history.length > 0 && (
+        <section className="relative z-10 py-16 px-6 flex justify-center">
+          <div className="w-full max-w-4xl bg-black/50 backdrop-blur-xl border border-green-500/30 rounded-2xl p-6">
 
+            <h3 className="text-xl font-bold text-green-400 mb-4">
+              Scan History
+            </h3>
+
+            {/* Filter */}
+            <div className="mb-4 flex items-center gap-3">
+              <label className="text-green-400">Filter by Risk:</label>
+              <select
+                value={filterRisk}
+                onChange={(e) => setFilterRisk(e.target.value)}
+                className="bg-black border border-green-400 text-green-400 px-3 py-2 rounded"
+              >
+                <option value="All">All</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+
+            {/* History List */}
+            <ul className="space-y-3">
+              {history
+                .filter(item =>
+                  filterRisk === "All" ? true : item.risk === filterRisk
+                )
+                .map((item) => (
+                  <li
+                    key={item.id}
+                    className="flex justify-between items-center bg-black/60 p-4 rounded-xl border border-green-500/20"
+                  >
+                    <div>
+                      <p className="text-sm text-gray-400">
+                        {item.created_at}
+                      </p>
+                      <p className="font-semibold">
+                        Score: {item.score}%
+                      </p>
+                      <span className="text-sm font-bold text-red-400">
+                        {item.risk}
+                      </span>
+                    </div>
+
+                    <button
+                      onClick={() => deleteHistory(item.id)}
+                      className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg text-sm"
+                    >
+                      Delete
+                    </button>
+                  </li>
+                ))}
+            </ul>
+
+          </div>
+        </section>
+      )}
       {/* RISK CHART SECTION */}
       {history.length > 0 && (
         <section className="relative z-10 py-16 px-6 flex justify-center">
