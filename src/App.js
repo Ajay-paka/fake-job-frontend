@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import TextAreaInput from "./components/TextAreaInput";
 import ResultCard from "./components/ResultCard";
 import RiskChart from "./components/RiskChart";
@@ -9,6 +9,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [history, setHistory] = useState([]);
   const [filterRisk, setFilterRisk] = useState("All");
+  const resultRef = useRef(null);
 
   const API_URL = process.env.REACT_APP_API_URL || "https://fake-job-backend.up.railway.app";
 
@@ -30,6 +31,7 @@ function App() {
       const data = await response.json();
       setResult(data);
       fetchHistory();
+
     } catch (error) {
       console.error("Error:", error);
     }
@@ -51,6 +53,12 @@ function App() {
     fetchHistory();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (result && resultRef.current) {
+      resultRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [result]);
 
   const deleteHistory = async (id) => {
     try {
@@ -137,7 +145,10 @@ function App() {
 
       {/* RESULT SECTION */}
       {result && (
-        <section className="relative z-10 py-16 px-6 flex justify-center">
+        <section
+          ref={resultRef}
+          className="relative z-10 py-16 px-6 flex justify-center"
+        >
           <div className="w-full max-w-4xl">
             <ResultCard result={result} />
           </div>
