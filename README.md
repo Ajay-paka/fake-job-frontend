@@ -6,7 +6,7 @@ It helps job seekers quickly evaluate whether a job opportunity appears genuine 
 ## 🚀 Live Demo
 
 Add your deployed link here:
-https://your-live-link.vercel.app
+(https://fake-job-detector-one.vercel.app/.com)
 
 ## ✨ Features
 
