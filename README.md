@@ -85,6 +85,12 @@ npm run dev
 * Risk score explanation engine
 * Cloud backend integration
 
+## 🔗 Related Projects
+
+Backend repository:
+
+https://github.com/Ajay-paka/fake-job-backend
+
 ## 👨‍💻 Author
 
 Ajay Paka
